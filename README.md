@@ -5,6 +5,7 @@ GammaRay is a free software introspection tool for Qt application developed by K
 Official website: https://www.kdab.com/development-resources/qt-tools/gammaray/
 
 ## Automated: Installation on OS : Ubuntu "16.04.5 LTS (Xenial Xerus)
+
 * Install ubuntu dependencies
 sudo apt-get install cmake cmake-extras graphviz-dev libdw-dev libbfd-dev libxt-dev gdb lldb qttools5-dev-tools
 
@@ -34,17 +35,6 @@ sudo make install
 Debian Package 
 
 
-
-
-
-
-
-
-
-
-
-
-
 __Known Errors:__
 
 In the current master branch (87c0a0a), the right of the binary files are not automatically set. Put them manually. (This is fixed on master branch)
@@ -54,15 +44,11 @@ sudo chmod +x /usr/local/lib/gammaray/libexec/gammaray-launcher
 sudo chmod +x /usr/local/bin/gammaray
 
 
-
-
 ## Manual : Installation on OS : Ubuntu "16.04.5 LTS (Xenial Xerus)
 
 Written: January the 22th 2019
 
 Updated: January the 22th 2019
-
-
 
 
 * Update and upgrade software
@@ -77,8 +63,6 @@ sudo apt-get clean
 * Install ubuntu dependencies
 
 sudo apt-get install cmake cmake-extras graphviz-dev libdw-dev libbfd-dev libxt-dev gdb lldb
-
-
 
 
 * Check if Qt-5.12.3 is installed, otherwise install it
@@ -99,8 +83,6 @@ cd build_KDStateMachineEditor
 cmake ../KDStateMachineEditor -DCMAKE_PREFIX_PATH=/usr/local/Qt5.12.3
 make -j4 (could be -j8 or more)
 sudo make install
-
-
 
 
 * Get, build and install extra-cmake-modules
@@ -129,8 +111,6 @@ make
 sudo make install
 
 
-
-
 * Get, build and install glslangcd ~/workspace
 
 git clone https://github.com/KhronosGroup/glslang.git
@@ -155,7 +135,9 @@ cmake -G "Unix Makefiles" ../GammaRay/ -DCMAKE_PREFIX_PATH=/usr/local/Qt-5.12.3 
 make
 !!! WARNING: !!! This build could failed when using -j so retry or not use j more than 1
 sudo make install
-Run:
+
+
+## Run:
 
 Run the Qt application through gammaray
 
@@ -166,13 +148,17 @@ The default timeout is too low, and the application stop quickier, so we put a h
 
 
 
-Remote connection
-Troubleshoots
+## Remote connection
+
+__Troubleshoots__
+
 Potential errors:
   Error: gdb: Yama security extension is blocking runtime attaching, see /proc/sys/kernel/yama/ptrace_scope
   Error: lldb: Yama security extension is blocking runtime attaching, see /proc/sys/kernel/yama/ptrace_scope
 Uh-oh, there is no default attach injector on this platform.
-Fix
+
+
+__Fix__
 
 You can temporarily disable this restriction (and revert to the old behaviour allowing your user to ptrace (gdb) any of their other processes) by doing:
 
